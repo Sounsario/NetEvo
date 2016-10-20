@@ -5,10 +5,10 @@ public class Axon {
 	private int neuron1;
 	private int neuron2;
 	
-	public Axon(int rangeMax) {
+	public Axon(int startNeuron, int endNeuron) {
 		setLength();
-		setStartpoint(rangeMax);
-		setEndpoint(rangeMax);
+		setStartpoint(startNeuron);
+		setEndpoint(endNeuron);
 	}
 	
 	private void setLength() {
@@ -16,21 +16,23 @@ public class Axon {
 		length = mt.randDouble(0, 1);
 	}
 	
-	private void setStartpoint(int rangeMax) {
-		MultiTool mt = new MultiTool();
-		neuron1 = mt.randInt(0, rangeMax);
+	private void setStartpoint(int startNeuron) {
+		neuron1 = startNeuron;
 	}
 	
-	private void setEndpoint(int rangeMax) {
-		MultiTool mt = new MultiTool();
-		neuron2 = neuron1;
-		
-		while(neuron2 == neuron1) {
-			neuron2 = mt.randInt(0, rangeMax);
-		}
+	private void setEndpoint(int endNeuron) {
+		neuron2 = endNeuron;
 	}
 	
 	public double getLength() {
 		return length;
+	}
+	
+	public int getStartNeuron() {
+		return neuron1;
+	}
+	
+	public int getEndNeuron() {
+		return neuron2;
 	}
 }

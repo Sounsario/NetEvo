@@ -1,9 +1,13 @@
 package sterling.spencer;
 
 public class Generation {
-	private Network[] networks;
+	//private Species[] species;
 	
-	public Generation() {
-		
+	public Generation(int populationSize, int speciesRange, double[] inputs, int numOfOutputs) {
+		initSpecies();
+	}
+	
+	private void initSpecies() {
+
 	}
 }

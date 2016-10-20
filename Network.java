@@ -4,23 +4,31 @@ import java.util.ArrayList;
 
 public class Network {
 	private Neuron[] inputNeurons;
-	private Axon[] inputAxons;
+	private Axon[][] inputAxons;
 	
-	private ArrayList<Neuron> Neurons;
-	private ArrayList<Axon> axons;
+	private Neuron[] neurons;
+	private Axon[] axons;
 	
 	private Neuron[] outputNeurons;
 	
-	public Network(double[] inputs, int numOfOutputs) {
-		setInputs(inputs);
+	public Network(double[] inputs, int numOfNeurons, int numOfOutputs) {
+		setInputs(inputs, numOfNeurons);
 		initOutputs(numOfOutputs);
 	}
 	
-	private void setInputs(double[] inputs) {
+	private void setInputs(double[] inputs, int numOfNeurons) {
 		inputNeurons = new Neuron[inputs.length];
+		inputAxons = new Axon[inputs.length][numOfNeurons];
+		
+		for(int i = 0; i < inputNeurons.length; i++) {
+			inputNeurons[i] = new Neuron(inputs[i]);
+		}
 		
 		for(int i = 0; i < inputs.length; i++) {
-			inputNeurons[i] = new Neuron(inputs[i]);
+			for(int j = 0; j < numOfNeurons; j++) {
+				inputAxons[i][j] = new Axon(i,j);
+			}
+			//inputAxons[i] = new Axon();
 		}
 	}
 	
