@@ -6,19 +6,16 @@ public class BrainEngine {
 		System.out.println(axon.getLength());
 		//input data as 2d array
 		//expected output as 2d array
+		//test input
+		//expected test output
+
+		//Surgeon surgeon = new Surgeon(populationSize, maxNumOfSpeciesPerPopulation, trainingInputs, trainingOutputs, testInputs, testOutputs, targetAccuracy, maxGenerations);
+		Surgeon surgeon = new Surgeon();
 		
-//		int targetAccuracy; // 1 to 100 percent
-//		boolean accuracyNotMet = true;
-		
-		//net = new Net(inputs, trainingCode); <=== dont do codes, they are too cryptic
-		
-//		while(accuracyNotMet) {
-//			if(net.getAccuracy < targetAccuracy) {
-//					net = new Net(net, inputs, trainingCode);
-//			} else {
-//				accuracyNotMet = false;
-//			}
-//		}
+		do {
+			surgeon.train();
+			surgeon.test();
+		} while(!(surgeon.hasReachedTargetAccuracy() || surgeon.hasReachedMaxGeneration()));
 		
 		//save network solution to file
 	}
