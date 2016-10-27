@@ -8,9 +8,21 @@ public class BrainEngine {
 		//expected output as 2d array
 		//test input
 		//expected test output
+		
+		int populationSize = 1000;
+		int maxNumOfSpeciesPerPopulation = 10;
+		
+		double[][] trainingInputs = new double[0][0];	//change this
+		double[][] trainingOutputs = new double[0][0];	//change this
+		double[][] testInputs = new double[0][0];		//change this
+		double[][] testOutputs = new double[0][0];		//change this
+		
+		int targetAccuracy = 90;
+		int maxGenerations = 100;
 
-		//Surgeon surgeon = new Surgeon(populationSize, maxNumOfSpeciesPerPopulation, trainingInputs, trainingOutputs, testInputs, testOutputs, targetAccuracy, maxGenerations);
-		Surgeon surgeon = new Surgeon();
+		Surgeon surgeon = new Surgeon(populationSize, maxNumOfSpeciesPerPopulation,
+									  trainingInputs, trainingOutputs, testInputs, testOutputs,
+									  targetAccuracy, maxGenerations);
 		
 		do {
 			surgeon.train();

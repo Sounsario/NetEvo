@@ -15,7 +15,9 @@ public class Surgeon {
 	int currentAccuracy;
 	int currentGeneration = 0;
 	
-	public Surgeon() {
+	public Surgeon(int popSize, int maxPerPop,
+				   double[][] trainIn, double[][] trainOut, double[][] testIn, double[][] testOut,
+				   int targetAcc, int maxGen) {
 		
 	}
 	
